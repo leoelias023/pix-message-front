@@ -19,7 +19,7 @@ export default function UsePix(props) {
     }
 
     const handleChangeValue = (e) => {
-        setValue(e.target.value);
+        setValue(parseFloat(e.target.value).toFixed(2));
     }
 
     const handleDonate = async () => {
@@ -50,18 +50,13 @@ return  <>
     >
         <Grid item style={{display: 'flex', flexDirection: 'column'}}>
             <TextField disabled={loading} sx={{mb: 3}} label="Apelido" variant="outlined" value={nickname} onChange={handleChangeNickName} />
-            <MoneyInput
-            disabled={loading}
-    customInput={TextField}
-    variant="outlined"
-    label="Valor"
-    value={value}
-    onChange={handleChangeValue}
-    currencyConfig={{
-        locale: 'pt-BR',
-        currencyCode: "BRL"
-    }}
-  />
+            <TextField disabled={loading} type="number" 
+                variant="outlined"
+                inputProps={{
+                maxLength: 13,
+                step: "1"
+                }}
+            onChange={handleChangeValue} />
             <Button sx={{mt: 5}} variant="contained" onClick={handleDonate} disabled={loading}>Enviar</Button>
         </Grid>      
     </Grid>
