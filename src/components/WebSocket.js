@@ -18,7 +18,7 @@ export default function WebSocket() {
         infoPagador
     }) {
         setOpen(true);    
-        setMessage(`${nickname} [R$ ${valor}] - ${infoPagador}`);
+        setMessage(`${nickname} [R$ ${valor}] ${infoPagador && infoPagador !== null ? '- ' + infoPagador : ''}`);
         setTimeout(() => setOpen(false), 5000);
     }
 
