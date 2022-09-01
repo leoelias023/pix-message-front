@@ -20,7 +20,8 @@ export default function Donation() {
     useEffect(() => {
         (async() => {
             const {data: donations} = await topDonations();
-            setDonations(donations);
+            console.log(donations)
+            setDonations(donations.sort((a, b) => (Number(a.valor) < Number(b.valor)) ? 1 : -1));
         })()
     }, [])
 
