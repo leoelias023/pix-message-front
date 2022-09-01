@@ -49,7 +49,7 @@ export default function Header() {
               key={'donates'}
               variant='outlined'
             >
-              <Link style={{ textDecoration: 'none', color: '#fff' }} to="/donation">Top doações</Link>
+              <Link style={{ textDecoration: 'none', color: '#fff' }} to="/donation"><strong>Top doações</strong></Link>
             </Button>
         </Box>
       </Toolbar>

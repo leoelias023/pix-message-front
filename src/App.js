@@ -10,10 +10,27 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import QrCode from "./components/QrCode";
 import WebSocket from "./components/WebSocket";
 import Header from "./components/Header";
+import { useEffect } from "react";
 
 function App() {
 
   const theme = createTheme({});
+
+  useEffect(() => {
+
+
+    setInterval(( ) => {
+      const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+      const r = randomBetween(0, 255);
+      const g = randomBetween(0, 255);
+      const b = randomBetween(0, 255);
+      const rgb = `rgb(${r},${g},${b})`;
+
+      document.getElementById('root').style.backgroundColor = rgb;
+
+    }, 300)
+    
+  }, [])
 
   return (
     <ThemeProvider theme={theme}>
