@@ -21,7 +21,7 @@ function App() {
         <Router>
           <Header />
           <Routes>
-            <Route path='/' element={<UsePix />} />
+            <Route exact path='/' element={<UsePix />} />
             <Route path='/donation' element={<Donation />} />
             <Route path='/qrcode' element={<QrCode />} />
           </Routes>
