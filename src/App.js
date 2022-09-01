@@ -1,14 +1,29 @@
-import { Input } from './components/input';
-import { Wrapper } from './styles/app.styled';
-import GlobalStyle from './styles/globalStyles';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import UsePix from './components/UsePix';
+import Donation from './components/Donation';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import QrCode from "./components/QrCode";
+import WebSocket from "./components/WebSocket";
 
 function App() {
+
+  const theme = createTheme({});
+
   return (
-    <Wrapper>
-      <Input place={"Digite seu nome"}/>
-      <Input place={"Digite o valor do pix"}/>
-      <GlobalStyle />
-    </Wrapper>
+    <ThemeProvider theme={theme}>
+        <WebSocket />
+        <Router>
+          <Routes>
+            <Route path='/' element={<UsePix />} />
+            <Route path='/donation' element={<Donation />} />
+            <Route path='/qrcode' element={<QrCode />} />
+          </Routes>
+        </Router>
+    </ThemeProvider>
   );
 }
 
