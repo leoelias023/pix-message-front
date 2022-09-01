@@ -4,7 +4,7 @@ import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 
 
 export default function WebSocket() {
-    const { lastMessage, readyState } = useWebSocket("ws://creathink.space:8080");
+    const { lastMessage, readyState } = useWebSocket("wss://creathink.space:8080");
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState("");
 
